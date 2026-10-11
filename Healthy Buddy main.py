@@ -12,7 +12,7 @@ st.set_page_config(
 
 # Tajuk Utama
 st.title("✨ HEALTHY FIT BUDDY ✨")
-st.subheader("🏃‍♂   RAKAN DIGITAL GAYA HIDUP SIHAT ANDA 🧘‍♀️")
+st.subheader("🏃‍♂️    RAKAN DIGITAL GAYA HIDUP SIHAT KAMU 🧘‍♀️")
 st.markdown("---")
 
 # Menu Navigasi di Sidebar
@@ -49,7 +49,7 @@ if pilihan_menu == "1. Kira BMI":
         tinggi_m = tinggi_cm / 100
         bmi = berat / (tinggi_m ** 2)
 
-        st.metric(label="Skor BMI Korang", value=f"{bmi:.2f}")
+        st.metric(label="Skor BMI Kamu", value=f"{bmi:.2f}")
 
         if bmi < 18.5:
             status = "Terlalu Kurus / Underweight 🦴"
@@ -65,7 +65,7 @@ if pilihan_menu == "1. Kira BMI":
             st.warning(f"**Status:** {status}\n\n💡 **Nasihat:** {nasihat}")
         else:
             status = "Obesiti ⚠️"
-            nasihat = "Jom mula bertindak! Rajin-rajin kan diri bersenam dan jumpa pakar kesihatan kalau perlu! ❤️"
+            nasihat = "Jom mula bertindak! Rajin-rajinkan diri bersenam dan jumpa pakar kesihatan kalau perlu! ❤️"
             st.error(f"**Status:** {status}\n\n💡 **Nasihat:** {nasihat}")
 
 # -----------------------------------------------------------------------------
@@ -83,7 +83,7 @@ elif pilihan_menu == "2. Kira Kalori Harian (BMR & TDEE)":
     with col3:
         tinggi = st.number_input("👉 Tinggi (cm):", min_value=30.0, max_value=250.0, value=170.0)
 
-    st.write("⚡ **Pilih Tahap Aktiviti Harian Korang:**")
+    st.write("⚡ **Pilih Tahap Aktiviti Harian Kamu:**")
     aktiviti_dict = {
         "🛋️ Rendah (Banyak duduk / jarang senaman)": 1.2,
         "🚶‍♂️ Sederhana (Senaman ringan 1-3 hari/minggu)": 1.375,
@@ -120,13 +120,13 @@ elif pilihan_menu == "2. Kira Kalori Harian (BMR & TDEE)":
 elif pilihan_menu == "3. Target Air Minum":
     st.header("💧 3. Target Air Minum Harian")
     
-    berat = st.number_input("👉 Masukkan berat badan anda (kg):", min_value=1.0, max_value=300.0, value=60.0)
+    berat = st.number_input("👉 Masukkan berat badan kamu (kg):", min_value=1.0, max_value=300.0, value=60.0)
 
     if st.button("Kira Sasaran Air"):
         sasaran_ml = berat * 35
         sasaran_liter = sasaran_ml / 1000
 
-        st.success(f"💦 **Sasaran Air Harian Anda:** ~{sasaran_liter:.2f} Liter ({sasaran_ml:.0f} ml)")
+        st.success(f"💦 **Sasaran Air Harian Kamu:** ~{sasaran_liter:.2f} Liter ({sasaran_ml:.0f} ml)")
         
         st.markdown("### 🗓️ Cadangan Jadual Minum Air (8 Gelas Sehari):")
         jadual = [
@@ -185,7 +185,7 @@ elif pilihan_menu == "4. Rutin & Pemasa Senaman Express":
 
         status_text.empty()
         st.balloons()
-        st.success("🎉 Tahniah korang! Berjaya habiskan rutin senaman harini! 🔥🥳")
+        st.success("🎉 Tahniah kamu! Berjaya habiskan rutin senaman hari ini! 🔥🥳")
 
 # -----------------------------------------------------------------------------
 # 5. KALKULATOR WAKTU TIDUR
@@ -194,7 +194,7 @@ elif pilihan_menu == "5. Kalkulator Waktu Tidur Optima":
     st.header("🌙 5. Kalkulator Waktu Tidur Optima")
     st.info("💡 1 Kitaran tidur mengambil masa ~90 minit.\n\n💡 Tidur yang segar perlukan 5-6 kitaran penuh (~7.5 - 9 jam).")
 
-    waktu_bangun_input = st.time_input("👉 Pukul berapa anda ingin bangun esok?", datetime.strptime("06:30", "%H:%M").time())
+    waktu_bangun_input = st.time_input("👉 Pukul berapa kamu ingin bangun esok?", datetime.strptime("06:30", "%H:%M").time())
 
     if st.button("Kira Waktu Tidur"):
         waktu_bangun = datetime.combine(datetime.today(), waktu_bangun_input)
@@ -229,7 +229,7 @@ elif pilihan_menu == "6. Cadangan Makanan Sihat":
     }
 
     if pilihan in menu:
-        st.markdown(f"### 🍽️ --- CADANGAN FOR {pilihan.upper()} ---")
+        st.markdown(f"### 🍽️ --- CADANGAN UNTUK {pilihan.upper()} ---")
         for item in menu[pilihan]:
             st.write(f"• {item}")
         st.info("💡 Tip: Pilih makanan yang seimbang dan pelbagaikan pilihan makanan.")
@@ -241,7 +241,7 @@ elif pilihan_menu == "7. Cadangan Aktiviti Harian":
     st.header("🏃 7. Cadangan Aktiviti Harian")
     
     pilihan = st.radio(
-        "Pilih aktiviti yang anda nak buat:",
+        "Pilih aktiviti yang kamu nak buat:",
         ["🚶 Jalan Kaki", "🏃 Jogging", "🚴 Berbasikal", "🧘 Stretching"]
     )
 
@@ -265,14 +265,14 @@ elif pilihan_menu == "8. Mood Check Harian":
     st.header("😊 8. Mood Check Harian")
     
     pilihan = st.select_slider(
-        "Bagaimana mood anda hari ini?",
+        "Bagaimana mood kamu hari ini?",
         options=["😭 Sangat tidak baik", "😕 Kurang baik", "😐 Biasa", "🙂 Baik", "😁 Sangat baik"],
         value="😐 Biasa"
     )
 
     respons = {
-        "😭 Sangat tidak baik": ("😭 Mood sangat rendah", "Cuba berehat seketika, tarik nafas perlahan dan lakukan aktiviti yang membuat korang rasa tenang."),
-        "😕 Kurang baik": ("😕 Mood kurang baik", "Ambil sedikit masa untuk berehat dan buat sesuatu yang korang suka."),
+        "😭 Sangat tidak baik": ("😭 Mood sangat rendah", "Cuba berehat seketika, tarik nafas perlahan dan lakukan aktiviti yang membuat kamu rasa tenang."),
+        "😕 Kurang baik": ("😕 Mood kurang baik", "Ambil sedikit masa untuk berehat dan buat sesuatu yang kamu suka."),
         "😐 Biasa": ("😐 Mood biasa", "Tak apa! Cuba kekalkan rutin yang baik dan teruskan aktiviti harian."),
         "🙂 Baik": ("🙂 Mood baik", "Mantap! Kekalkan mood positif dengan aktiviti sihat."),
         "😁 Sangat baik": ("😁 Mood sangat baik", "Yay! Teruskan vibe positif dan kongsikan tenaga baik dengan orang sekeliling!")
@@ -306,7 +306,7 @@ elif pilihan_menu == "9. Pilihan Makanan Sihat":
     st.info("💡 Tip: Cuba gabungkan beberapa kategori untuk hidangan yang lebih seimbang.")
 
 # -----------------------------------------------------------------------------
-# 10. CABARAN GAYA HIDUP SIHAT
+# 10. CABARAN GAYA HIDUP SIHAT (DENGAN PAPARAN VIDEO)
 # -----------------------------------------------------------------------------
 elif pilihan_menu == "10. Cabaran Gaya Hidup Sihat":
     st.header("🎯 10. Cabaran Gaya Hidup Sihat")
@@ -316,18 +316,47 @@ elif pilihan_menu == "10. Cabaran Gaya Hidup Sihat":
         ["💧 Minum Air Secukupnya", "👟 Jalan 5,000 Langkah", "😴 Tidur 7-9 Jam", "🏋️ Workout 10 Minit"]
     )
 
+    # Menambah pautan video YouTube sebagai elemen ke-4 dalam dictionary
     cabaran = {
-        "💧 Minum Air Secukupnya": ("💧 CABARAN AIR", "Cuba pastikan anda minum air dengan kerap sepanjang hari.", "Bawa botol air bersama anda."),
-        "👟 Jalan 5,000 Langkah": ("👟 CABARAN LANGKAH", "Cuba capai 5,000 langkah hari ini.", "Gunakan peluang untuk berjalan kaki lebih banyak."),
-        "😴 Tidur 7-9 Jam": ("😴 CABARAN TIDUR", "Sasarkan tidur yang mencukupi malam ini.", "Kurangkan penggunaan telefon sebelum tidur."),
-        "🏋️ Workout 10 Minit": ("🏋️ CABARAN WORKOUT", "Luangkan sekurang-kurangnya 10 minit untuk bergerak aktif.", "Boleh buat stretching, squat atau jalan pantas.")
+        "💧 Minum Air Secukupnya": (
+            "💧 CABARAN AIR", 
+            "Cuba pastikan kamu minum air dengan kerap sepanjang hari.", 
+            "Bawa botol air bersama kamu.",
+            "https://www.youtube.com/watch?v=9iMGFqMmUFs"
+        ),
+        "👟 Jalan 5,000 Langkah": (
+            "👟 CABARAN LANGKAH", 
+            "Cuba capai 5,000 langkah hari ini.", 
+            "Gunakan peluang untuk berjalan kaki lebih banyak.",
+            "https://www.youtube.com/watch?v=enYITYwvHEQ"
+        ),
+        "😴 Tidur 7-9 Jam": (
+            "😴 CABARAN TIDUR", 
+            "Sasarkan tidur yang mencukupi malam ini.", 
+            "Kurangkan penggunaan telefon sebelum tidur.",
+            "https://www.youtube.com/watch?v=gedoSfZvBgE"
+        ),
+        "🏋️ Workout 10 Minit": (
+            "🏋️ CABARAN WORKOUT", 
+            "Luangkan sekurang-kurangnya 10 minit untuk bergerak aktif.", 
+            "Boleh buat stretching, squat atau jalan pantas.",
+            "https://www.youtube.com/watch?v=gC_L9qAHVJ8"
+        )
     }
 
-    tajuk, sasaran, tip = cabaran[pilihan]
-    st.markdown(f"### 🎯 --- {tajuk} ---")
-    st.write(f"📌 **Sasaran:** {sasaran}")
-    st.write(f"💡 **Tip:** {tip}")
-    st.success("🔥 Jom cuba! Sedikit perubahan setiap hari boleh membantu membina rutin yang baik.")
+    tajuk, sasaran, tip, video_url = cabaran[pilihan]
+    
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        st.markdown(f"### 🎯 --- {tajuk} ---")
+        st.write(f"📌 **Sasaran:** {sasaran}")
+        st.write(f"💡 **Tip:** {tip}")
+        st.success("🔥 Jom cuba! Sedikit perubahan setiap hari boleh membantu membina rutin yang baik.")
+
+    with col2:
+        st.markdown("### 🎥 Panduan & Ikuti Video:")
+        st.video(video_url)
 
 # Footer
 st.sidebar.markdown("---")
